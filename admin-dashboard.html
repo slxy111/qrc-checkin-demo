@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>数据总览 · 管理后台</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="dashboard" data-auth="admin">
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="page">
+      <div class="ph-head">
+        <div>
+          <h1>数据总览</h1>
+          <p id="evLine"></p>
+        </div>
+        <div class="actions">
+          <a class="btn sm ghost" href="admin-import.html">导入名单</a>
+          <a class="btn sm ghost" href="admin-print-template.html">设计标签格式</a>
+          <a class="btn sm primary" href="admin-checkin-query.html">导出报表</a>
+        </div>
+      </div>
+      <div class="g g6" id="stats"></div>
+      <div class="g g23 mt">
+        <div class="card">
+          <div class="hd"><h3>按类别统计</h3><span class="hint">数字为 实到 / 应到</span></div>
+          <div class="bd"><div class="chart" id="catChart"></div></div>
+        </div>
+        <div class="card">
+          <div class="hd"><h3>最近签到流水</h3><a class="btn sm ghost" href="admin-checkin-query.html">查看全部</a></div>
+          <div class="tbl-wrap"><table class="tbl"><thead><tr>
+            <th>姓名</th><th>公司 / 部门</th><th>桌号</th><th>来源</th><th>签到方式</th><th>时间</th>
+          </tr></thead><tbody id="recent"></tbody></table></div>
+        </div>
+      </div>
+      <div class="g g4 mt" id="quick"></div>
+    </div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

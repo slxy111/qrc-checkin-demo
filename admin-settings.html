@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>系统设置 · 管理后台</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="settings" data-auth="admin">
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="page">
+      <div class="ph-head">
+        <div><h1>系统设置</h1><p>账号、域名、签到开放时间、字典与操作日志；数据保存在本机浏览器，可随时重置演示数据。</p></div>
+        <div class="actions"><button class="btn sm primary" id="save">保存</button></div>
+      </div>
+      <div class="g g2">
+        <div class="stack">
+          <div class="card">
+            <div class="hd"><h3>账号</h3><span class="hint">后台 5 个 · 签到台 3 个</span></div>
+            <div class="bd">
+              <div class="tbl-wrap"><table class="tbl"><thead><tr>
+                <th>编号</th><th>账号</th><th>密码</th><th>角色</th><th>操作</th>
+              </tr></thead><tbody id="accTable"></tbody></table></div>
+              <div class="row mt-s">
+                <button class="btn sm" id="resetAcc">恢复默认账号</button>
+                <span class="small muted">签到台账号权限较低：不能导出完整手机号、不能删除记录；右上角头像上的数字就是登录账号的编号。</span>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="hd"><h3>域名与签到时间</h3></div>
+            <div class="bd">
+              <div class="field"><label>短链域名</label><input class="input" id="domain"></div>
+              <div class="field mt-s"><label>签到提前开放（分钟）</label><input class="input" id="openLead"></div>
+              <div class="hintline">默认 120 分钟：活动开始前 2 小时自动开放签到。</div>
+              <div class="divider"></div>
+              <div class="field"><label>二维码指向</label>
+                <div class="seg" id="qrModeSeg"><span data-mode="demo">演示模式（指向本站页面，手机可扫）</span><span data-mode="formal">正式模式（用上面的域名 /s/编码）</span></div>
+              </div>
+              <div class="note info mt-s" id="linkInfo"></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="hd"><h3>字典</h3><span class="hint">用于分组统计</span></div>
+            <div class="bd">
+              <div class="small muted">类别</div>
+              <div class="row mt-s" id="cats"></div>
+              <div class="row mt-s">
+                <input class="input" id="newCat" placeholder="新增类别" style="max-width:180px">
+                <button class="btn sm" id="addCat">添加</button>
+              </div>
+              <div class="divider"></div>
+              <div class="small muted">公司 / 部门</div>
+              <div class="row mt-s" id="comps"></div>
+              <div class="row mt-s">
+                <input class="input" id="newComp" placeholder="新增公司 / 部门" style="max-width:180px">
+                <button class="btn sm" id="addComp">添加</button>
+              </div>
+              <div class="hintline">列表里的值来自本活动的导入名单，导入后自动出现；也可以在这里手工补充。</div>
+            </div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="card">
+            <div class="hd"><h3>数据</h3></div>
+            <div class="bd">
+              <p class="small" id="dataInfo"></p>
+              <div class="note info mt-s" id="dataLoc"></div>
+              <div class="row mt-s">
+                <button class="btn" id="exportLog">导出操作日志</button>
+                <button class="btn" id="clearBtn">清除本场手机号</button>
+                <button class="btn danger" id="reset">重置演示数据</button>
+              </div>
+              <div class="note warn mt"><i></i><div>演示版数据存在本机浏览器里（localStorage），换电脑或清缓存会丢；正式版会换成服务器数据库。</div></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="hd"><h3>操作日志</h3><span class="hint">关键操作全部留痕</span></div>
+            <div class="tbl-wrap"><table class="tbl"><thead><tr>
+              <th>时间</th><th>操作人</th><th>类型</th><th>目标</th><th>详情</th>
+            </tr></thead><tbody id="logs"></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

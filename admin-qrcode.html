@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>二维码管理 · 管理后台</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="qrcode" data-auth="admin">
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="page">
+      <div class="ph-head">
+        <div><h1>二维码管理</h1><p>二维码由系统自行生成（不依赖第三方）：每人一个 8 位编码，用到时才画出来，库里只存编码。</p></div>
+        <div class="actions"><button class="btn sm" id="batchBtn">批量打印前 12 张</button></div>
+      </div>
+      <div class="split">
+        <div class="stack">
+          <div class="card">
+            <div class="hd"><h3>查找人员</h3><span class="hint">姓名 / 编码</span></div>
+            <div class="bd">
+              <div class="row">
+                <input class="input" id="q" placeholder="输入姓名或编码" style="flex:1">
+                <button class="btn primary" id="searchBtn">查询</button>
+              </div>
+            </div>
+          </div>
+          <div class="card" id="one" style="display:none">
+            <div class="hd"><h3>个人二维码</h3><button class="btn sm" id="dlOne" style="display:none"></button></div>
+            <div class="bd" style="display:flex;gap:20px;align-items:center" id="oneBox"></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="hd"><h3>人员与短链</h3><span class="hint">点姓名查看二维码</span></div>
+          <div class="tbl-wrap"><table class="tbl"><thead><tr>
+            <th>编码</th><th>姓名</th><th>公司 / 部门</th><th>桌号</th><th>签到状态</th><th>个人短链</th>
+          </tr></thead><tbody id="list"></tbody></table></div>
+        </div>
+      </div>
+      <div class="print-area" id="printArea"></div>
+    </div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

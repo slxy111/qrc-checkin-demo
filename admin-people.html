@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>人员库 · 管理后台</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="people" data-auth="admin">
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="page">
+      <div class="ph-head">
+        <div><h1>人员库</h1><p>当前活动的全部人员：名单导入 + 现场注册；可组合筛选、查看详情、单独打印标签。</p></div>
+        <div class="actions"><button class="btn sm" id="exportBtn">导出当前筛选</button></div>
+      </div>
+
+      <div class="card">
+        <div class="bd">
+          <div class="g g4" style="gap:12px">
+            <div class="field"><label>关键词</label><input class="input" id="fq" placeholder="姓名 / 手机号（后四位）/ 桌号 / 编码 / 公司"></div>
+            <div class="field"><label>来源</label><select class="select" id="fsrc"><option value="">全部</option><option value="import">名单导入</option><option value="onsite">现场注册</option></select></div>
+            <div class="field"><label>签到状态</label><select class="select" id="fst"><option value="">全部</option><option value="signed">已签到</option><option value="unsigned">未签到</option></select></div>
+            <div class="field"><label>类别</label><select class="select" id="fcat"><option value="">全部</option><option>VIP</option><option>Non-VIP</option><option>内部陪同</option><option>未分类</option></select></div>
+          </div>
+          <div class="row mt-s" style="justify-content:space-between">
+            <div class="field" style="max-width:260px"><label>公司 / 部门</label><select class="select" id="fcomp"><option value="">全部</option><option>示例公司A</option><option>示例公司B</option><option>示例部门</option></select></div>
+            <div class="row"><button class="btn" id="resetBtn">重置</button></div>
+          </div>
+          <div class="hintline">关键词支持：姓名（可只输一部分）、手机号后四位（精确匹配末尾四位）、桌号、个人编码（可只输开头几位）、公司／部门；多个条件用空格分开表示同时满足，例如「张 示例公司A」。</div>
+        </div>
+      </div>
+
+      <div class="split mt">
+        <div class="card">
+          <div class="hd"><h3>人员列表</h3><span class="hint" id="count"></span></div>
+          <div class="tbl-wrap"><table class="tbl"><thead><tr>
+            <th>姓名</th><th>公司 / 部门</th><th>职务</th><th>电话</th><th>桌号</th><th>类别</th>
+            <th>来源</th><th>签到状态</th><th>签到时间</th><th>方式</th><th>操作</th>
+          </tr></thead><tbody id="list"></tbody></table></div>
+        </div>
+        <div class="card" id="detail">
+          <div class="bd" style="padding:24px;text-align:center;color:var(--muted)">点左侧任意人员的「详情」，这里显示资料、二维码与补签 / 撤销操作。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

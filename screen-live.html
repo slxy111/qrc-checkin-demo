@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>实时看板 · 投屏端</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="live">
+<div class="screen-page">
+  <div class="sh">
+    <div class="t" id="evName">活动名称 · 实时看板</div>
+    <div class="row">
+      <span class="live">● 实时更新（每 5 秒）</span>
+      <span class="pill mint">只读展示</span>
+      <span class="muted small" id="updated"></span>
+      <a class="btn sm ghost" href="index.html">返回导航</a>
+    </div>
+  </div>
+  <div class="sb">
+    <div class="tot">
+      <b id="total">000</b>
+      <span>合计到场</span>
+      <div class="sub" id="subs"></div>
+    </div>
+    <div>
+      <div class="spread" style="margin-bottom:14px"><b style="font-size:17px">按类别到场</b><span class="muted" style="font-size:14px">实到</span></div>
+      <div class="rank" id="rank"></div>
+      <div class="divider" style="background:rgba(255,255,255,.14)"></div>
+      <div class="spread"><b style="font-size:17px">按部门到场</b><span class="muted" style="font-size:14px">实到</span></div>
+      <div class="rank" style="margin-top:14px" id="rank2"></div>
+    </div>
+    <div>
+      <div class="spread" style="margin-bottom:14px"><b style="font-size:17px">最新签到</b><span class="muted" style="font-size:14px">滚动显示</span></div>
+      <div class="feed-list" id="feed"></div>
+    </div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

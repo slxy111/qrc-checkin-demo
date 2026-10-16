@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>签到台 · 主界面</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="kiosk-checkin">
+<div class="kiosk">
+  <div class="k-top">
+    <div class="ev" id="evName">签到台</div>
+    <div class="right">
+      <span class="selsm" style="padding:0"><select id="kioskEventPick" class="select" style="border:0;background:transparent;padding:7px 10px;font-size:13px"></select></span>
+      <a class="btn lg mint" href="kiosk-register.html">现场注册</a>
+      <a class="btn lg ghost" href="register-qr.html">注册二维码</a>
+      <button class="btn lg ghost" id="fullBtn">全屏</button>
+      <a class="btn lg" href="index.html">退出</a>
+    </div>
+  </div>
+
+  <div class="k-banner open" id="evStatus" style="display:none"></div>
+
+  <div class="k-search">
+    <div class="k-group focus">
+      <div class="k-field main">
+        <input id="q" placeholder="姓名 / 手机号（后四位）/ 编号" autocomplete="off">
+      </div>
+      <div class="k-field suffix">
+        <span class="lb">手机号后四位</span>
+        <input id="q4" maxlength="4" inputmode="numeric" placeholder="－ － － －">
+      </div>
+    </div>
+    <button class="btn primary lg" id="searchBtn" style="padding:0 34px;font-size:19px">检 索</button>
+  </div>
+
+  <div class="k-stats" id="stats"></div>
+
+  <div class="k-result big-ok" id="result" style="display:none"></div>
+
+  <div class="k-list">
+    <div class="lh"><span>姓名</span><span>公司 / 部门</span><span>桌号</span><span>类别</span><span>状态</span><span>签到时间</span><span>操作</span></div>
+    <div id="list"></div>
+  </div>
+
+  <div class="k-foot">
+    <div class="row">
+      <span class="kbd">扫码枪识别回车自动签到</span>
+      <span>检索命中多人时选出代签</span>
+      <span>F2 快速聚焦后四位</span>
+    </div>
+    <div class="row">
+      <span class="pill ok">绿色：签到成功</span>
+      <span class="pill man">橙色：已签到</span>
+      <span class="pill bad">红色：查不到人员</span>
+    </div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

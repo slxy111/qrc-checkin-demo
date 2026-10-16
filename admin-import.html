@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>名单管理 · 管理后台</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="import" data-auth="admin">
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="page">
+      <div class="ph-head">
+        <div>
+          <h1>名单管理</h1>
+          <p>上传或粘贴名单（CSV / Excel 另存为 CSV），系统自动跳过上方说明文字、识别表头行，按「姓名 + 公司／部门」去重合并，并给出逐行校验报告。</p>
+        </div>
+        <div class="actions"><span id="recentImport"></span><button class="btn sm ghost" id="tplBtn">下载名单模板</button></div>
+      </div>
+
+      <div class="split">
+        <div class="stack">
+          <div class="card">
+            <div class="hd"><h3>上传名单</h3><span class="hint">也可以直接粘贴表格内容</span></div>
+            <div class="bd">
+              <div class="drop" id="dropZone">
+                <b>把名单文件拖到这里，或点下面的按钮选择</b>
+                支持 Excel（.xlsx）和 CSV；老版 .xls 请在 Excel 里「另存为」.xlsx 或 .csv
+                <input type="file" id="fileInput" accept=".xlsx,.csv,.xls,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" style="display:block;margin:12px auto 0;max-width:340px">
+              </div>
+              <div class="field mt-s"><label>或粘贴内容</label>
+                <textarea class="textarea" id="csvText" style="min-height:200px" placeholder="把名单内容粘在这里（含表头：酒店桌号,类别,姓名,公司/部门,职务,电话,负责销售）"></textarea>
+              </div>
+              <div class="row" style="justify-content:space-between">
+                <button class="btn" id="sampleBtn">载入示例内容</button>
+                <button class="btn primary" id="analyzeBtn">解析并预览</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mt" id="preview" style="display:none">
+            <div class="hd"><h3>导入预览</h3><span class="hint">确认后才会写入</span></div>
+            <div class="bd">
+              <div class="g g4" id="counts"></div>
+              <div class="g mt-s" id="previewNote"></div>
+              <div class="row mt" style="justify-content:flex-end">
+                <button class="btn primary" id="confirmBtn" style="display:none">确认导入</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="hd"><h3>校验报告</h3><span class="hint">逐行给出问题与处理</span></div>
+          <div class="tbl-wrap"><table class="tbl"><thead><tr>
+            <th>行号</th><th>姓名</th><th>问题</th><th>处理方式</th>
+          </tr></thead><tbody id="issues"></tbody></table></div>
+          <div class="tbl-foot"><span>唯一标识：姓名 + 公司／部门；重复导入只更新不新增</span></div>
+        </div>
+      </div>
+
+      <div class="card mt">
+        <div class="hd"><h3>规则说明</h3></div>
+        <div class="bd">
+          <div class="g g3">
+            <div><b class="small">唯一标识</b><p class="small muted">用姓名 + 公司／部门判断，不使用手机号（号码可能为空或两人共用一个）。</p></div>
+            <div><b class="small">合并更新</b><p class="small muted">第二次导入补上桌号、职务、类别时更新原记录，不新增一条，也不影响已有签到。</p></div>
+            <div><b class="small">允许为空</b><p class="small muted">桌号、类别、电话都可以为空：桌号空则该行不打印，电话格式异常标记为待确认。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/xlsx.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>签到台 · 检索与代签</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="kiosk-search">
+<div class="kiosk">
+  <div class="k-top">
+    <div class="ev">检索与代签 <span>· 命中多人时由工作人员确认</span></div>
+    <div class="right">
+      <span class="selsm" style="padding:0"><select id="kioskEventPick" class="select" style="border:0;background:transparent;padding:7px 10px;font-size:13px"></select></span>
+      <a class="btn lg" href="kiosk-checkin.html">返回扫码签到</a>
+      <a class="btn lg mint" href="kiosk-register.html">现场注册</a>
+    </div>
+  </div>
+
+  <div class="k-search">
+    <div class="k-group focus">
+      <div class="k-field main">
+        <input id="q" placeholder="姓名 / 手机号（后四位）/ 编号" autocomplete="off">
+      </div>
+      <div class="k-field suffix">
+        <span class="lb">手机号后四位</span>
+        <input id="q4" maxlength="4" inputmode="numeric" placeholder="－ － － －">
+      </div>
+    </div>
+    <button class="btn primary lg" id="searchBtn" style="padding:0 34px;font-size:19px">检 索</button>
+    <button class="btn lg" id="qClear">清空</button>
+  </div>
+
+  <div class="note info"><i></i><div>姓名支持模糊匹配；手机号支持全号与末尾四位精确匹配（不匹配中间四位）；命中多人时列出候选，由工作人员核对公司、类别与桌号后点击代签。</div></div>
+
+  <div class="card" style="background:#fff">
+    <div class="hd"><h3 style="font-size:17px">检索结果</h3><span class="hint">代签会标记为「工作人员代签」，可单独统计与导出</span></div>
+    <div id="cands"></div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

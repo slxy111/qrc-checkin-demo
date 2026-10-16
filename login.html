@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>登录 · 管理后台</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="login">
+<div class="login">
+  <section class="visual">
+    <div>
+      <div class="row" style="gap:12px">
+        <span style="width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.25);display:block"></span>
+        <b style="font-size:16px">二维码签到与数据查询平台</b>
+      </div>
+      <h2 style="margin-top:34px">扫码签到，确认后打印标签</h2>
+      <p>会前导入名单、批量生成专属链接；现场扫码签到、确认后打印一张胸卡标签；会后导出已签到与未签到两张表。</p>
+      <div class="dots">
+        <div>签到台大字号<br><b>1 米外可读</b></div>
+        <div>确认后打印标签<br><b>一次一张</b></div>
+        <div>统计八项口径<br><b>导入即去重</b></div>
+      </div>
+    </div>
+    <div style="font-size:12.5px;color:rgba(255,255,255,.8)">演示环境 · 数据保存在本机浏览器</div>
+  </section>
+
+  <section class="formside">
+    <div class="box">
+      <h3>登录</h3>
+      <p class="sub" id="roleNote">活动管理员可导入名单、导出数据、补签撤销、设计打印格式。</p>
+      <div class="row" style="gap:8px;margin-bottom:16px">
+        <button class="btn sm role-tab on" data-role="admin">管理后台</button>
+        <button class="btn sm role-tab" data-role="kiosk">签到台</button>
+      </div>
+      <form class="form" id="loginForm" autocomplete="off">
+        <div class="field"><label>账号</label><input class="input" id="user" placeholder="请输入账号"></div>
+        <div class="field"><label>密码</label><input class="input" id="pass" type="password" placeholder="请输入密码"></div>
+        <div class="note bad" id="loginErr" style="display:none"><i></i><div id="loginErrText">账号或密码不正确，请重试。</div></div>
+        <button class="btn primary lg block" type="submit">登 录</button>
+      </form>
+      <div class="note info mt"><i></i><div>
+        <b>测试账号</b>（点一下自动填入，不用手打）：
+        <div class="row mt-s" id="accList"></div>
+        <span class="small muted">管理后台 5 个：admin01 ~ admin05；签到台 3 个：kiosk01 ~ kiosk03；密码都是 123456。<br>
+        登录时会自动识别账号属于哪个角色，不用手动切换上面的标签。<br>
+        参会人自助注册只是建档发二维码，不会生成登录账号。</span><br>
+        <button class="btn sm mt-s" id="resetAcc">恢复默认账号</button></div></div>
+      <p class="foot"><a href="index.html">← 返回导航</a></p>
+    </div>
+  </section>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

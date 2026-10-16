@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>活动管理 · 管理后台</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="events" data-auth="admin">
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="page">
+      <div class="ph-head">
+        <div>
+          <h1>活动管理</h1>
+          <p>支持多场活动，数据按活动隔离；活动信息同时用于短信模板、个人页面与打印模板。</p>
+        </div>
+      </div>
+      <div class="split">
+        <div class="stack">
+          <div class="card">
+            <div class="hd"><h3>当前活动</h3><span class="hint">可切换 / 结束签到</span></div>
+            <div class="bd" id="eventInfo"></div>
+          </div>
+          <div class="card">
+            <div class="hd"><h3>新建活动</h3><span class="hint">新建后自动切换为当前活动</span></div>
+            <div class="bd">
+              <form class="form" id="newEventForm" autocomplete="off">
+                <div class="field"><label>活动名称<span class="req">*</span></label><input class="input" name="name" placeholder="例如：CBB 2026 晚宴"></div>
+                <div class="g g2">
+                  <div class="field"><label>主办单位</label><input class="input" name="host" placeholder="用于短信签名【】"></div>
+                  <div class="field"><label>开始时间</label><input class="input" name="startAt" placeholder="2026-10-11 14:00"></div>
+                </div>
+                <div class="g g2">
+                  <div class="field"><label>地点</label><input class="input" name="place" placeholder="酒店 + 厅名"></div>
+                  <div class="field"><label>签到时段</label><input class="input" name="signRange" placeholder="13:00-14:00"></div>
+                </div>
+                <div class="row" style="justify-content:flex-end"><button class="btn primary" type="submit">新建并切换</button></div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="hd"><h3>活动列表</h3><span class="hint">点击行内按钮切换或结束签到</span></div>
+          <div class="tbl-wrap"><table class="tbl"><thead><tr>
+            <th>活动名称</th><th>主办单位</th><th>开始时间</th><th>人员</th><th>已签到</th><th>状态</th><th>操作</th>
+          </tr></thead><tbody id="eventList"></tbody></table></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>打印输出 · 单张标签</title>
+<link rel="stylesheet" href="assets/app.css">
+<style>
+#labelBox{display:flex;align-items:center;justify-content:center;gap:1.6mm;padding:1.4mm 2mm;
+  background:#fff;border:1px dashed #d8e0ef;border-radius:4px;overflow:hidden}
+#labelBox .main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0}
+#labelBox .ln{line-height:1.12;width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+</style>
+</head>
+<body data-page="print-label">
+<div class="mobile-stage">
+  <div class="stack" style="align-items:center;gap:22px">
+    <div class="no-print" style="text-align:center">
+      <span class="tag">打印输出页</span>
+      <h1 style="font-size:22px;margin:12px 0 6px">单张标签</h1>
+      <p class="muted small" style="margin:0" id="meta"></p>
+    </div>
+
+    <div id="labelBox"></div>
+
+    <div class="row no-print">
+      <button class="btn primary lg" id="doPrint">打印这一张</button>
+      <a class="btn lg" href="kiosk-print.html">返回签到打印页</a>
+      <a class="btn lg ghost" href="admin-print-template.html">回到后台设计格式</a>
+    </div>
+
+    <div class="no-print"><div class="note info" style="max-width:620px"><i></i><div>打印对话框里纸张选标签规格、边距选「无」、缩放 100%。标签内容（字段、字号、二维码）在后台「打印模板设计」里设置。</div></div></div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

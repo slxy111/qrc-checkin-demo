@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>二维码签到平台 · 可运行版</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="index">
+<div class="w-wide" style="padding:28px 24px 60px">
+  <div class="hero" style="background:linear-gradient(135deg,#eef3ff,#f7f9ff 45%,#eafaf7);border:1px solid var(--line);border-radius:20px;padding:26px 28px;box-shadow:var(--sh)">
+    <span class="tag">可运行版 · 数据存在本机浏览器</span>
+    <h1 style="font-size:24px;margin:10px 0 6px">二维码签到与数据查询平台</h1>
+    <p class="muted" style="max-width:820px">这不是图片，是能真点的版本：可以导入名单、扫码签到、现场注册、补录桌号、打印标签、导出报表。数据保存在本机浏览器里，关掉再打开还在。</p>
+    <div class="row mt-s">
+      <span class="tag">演示账号 admin / 123456</span>
+      <span class="tag">签到台账号 kiosk / 123456</span>
+      <a class="btn sm ghost" href="check.html">手机访问自检 / 扫码测试</a>
+      <button class="btn sm" id="resetTip">重置演示数据</button>
+    </div>
+  </div>
+
+  <div class="g g4 mt" id="sum"></div>
+
+  <div class="g" style="grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px">
+    <div class="home-card">
+      <h3>签到台端（现场用）</h3>
+      <ul>
+        <li><a class="link" href="kiosk-checkin.html">签到主界面</a>：扫码 / 检索 / 代签 / 列表打印</li>
+        <li><a class="link" href="kiosk-register.html">现场注册</a>：代录后填桌号 → 确认并打印</li>
+        <li><a class="link" href="kiosk-print.html">打印标签</a>：确认后打印一张</li>
+        <li><a class="link" href="kiosk-search.html">检索与代签</a>：代签并打印 / 仅打印</li>
+        <li><a class="link" href="register-qr.html">注册二维码页</a>：新人扫码自助注册</li>
+      </ul>
+    </div>
+    <div class="home-card">
+      <h3>手机端（参会人）</h3>
+      <ul>
+        <li><a class="link" href="mobile-register.html">自助注册表单</a>：提交后弹「注册成功，请与工作人员确认桌号」</li>
+        <li><a class="link" href="mobile-pass.html">个人二维码页</a>：从短信链接打开</li>
+        <li><a class="link" href="mobile-query.html">手机号查询</a>：没收到短信时用</li>
+      </ul>
+      <div class="mt-s"><b class="small">注册入口二维码</b><div id="homeQr" class="qr-holder" style="margin-top:8px"></div>
+      <div class="mono-sm muted" id="homeUrl" style="margin-top:6px;word-break:break-all"></div></div>
+    </div>
+    <div class="home-card">
+      <h3>管理后台</h3>
+      <ul>
+        <li><a class="link" href="login.html">登录</a> · <a class="link" href="admin-dashboard.html">数据总览</a></li>
+        <li><a class="link" href="admin-import.html">名单管理</a>：导入去重、逐行校验</li>
+        <li><a class="link" href="admin-people.html">人员库</a> · <a class="link" href="admin-onsite.html">现场注册记录</a></li>
+        <li><a class="link" href="admin-checkin-query.html">签到查询</a>：补签撤销、导出两张表</li>
+        <li><a class="link" href="admin-stats.html">统计汇总</a> · <a class="link" href="admin-sms.html">短信通知</a></li>
+        <li><a class="link" href="admin-print-template.html">打印模板设计</a>：每场活动前设一次</li>
+        <li><a class="link" href="admin-qrcode.html">二维码管理</a> · <a class="link" href="admin-settings.html">系统设置</a></li>
+        <li><a class="link" href="screen-live.html">投屏端实时看板</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card mt">
+    <div class="hd"><h3>建议按这个顺序试</h3></div>
+    <div class="bd">
+      <div class="steps">
+        <div class="s"><b>① 导入名单</b><span>名单管理 → 载入示例 → 确认导入</span></div>
+        <div class="s"><b>② 设计标签</b><span>打印模板设计 → 选字段 → 保存</span></div>
+        <div class="s"><b>③ 模拟签到</b><span>签到台输入编码或检索 → 确认</span></div>
+        <div class="s"><b>④ 打印标签</b><span>确认后点「打印标签」（1 张）</span></div>
+        <div class="s"><b>⑤ 现场注册</b><span>手机表单提交 → 后台实时出现</span></div>
+        <div class="s"><b>⑥ 导出报表</b><span>签到查询 → 导出已签到 / 未签到</span></div>
+      </div>
+      <div class="note info mt"><i></i><div>打印用的是浏览器打印：点「打印标签」会弹出打印对话框，纸张选 70×30mm（或按后台设定的规格）、边距选无、缩放 100%。</div></div>
+    </div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

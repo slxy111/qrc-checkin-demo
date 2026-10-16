@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>签到查询 · 管理后台</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="checkin" data-auth="admin">
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="page">
+      <div class="ph-head">
+        <div><h1>签到查询</h1><p>用姓名、手机号后四位或桌号核对人员；可补签、撤销，并导出「已签到 / 未签到」两张表。</p></div>
+        <div class="actions">
+          <button class="btn sm" id="exportOnsite">导出现场注册名单</button>
+          <button class="btn sm primary" id="exportTwo">导出已签到 + 未签到</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="bd">
+          <div class="g g4" style="gap:12px">
+            <div class="field"><label>姓名</label><input class="input" id="fq" placeholder="支持模糊匹配"></div>
+            <div class="field"><label>手机号后四位</label><input class="input" id="ftail" maxlength="4" placeholder="末尾四位"></div>
+            <div class="field"><label>桌号</label><input class="input" id="ftable" placeholder="输入桌号"></div>
+            <div class="field"><label>类别</label><select class="select" id="fcat"><option value="">全部</option><option>VIP</option><option>Non-VIP</option><option>内部陪同</option><option>未分类</option></select></div>
+          </div>
+          <div class="row mt-s" style="justify-content:space-between">
+            <div class="tabs">
+              <a class="tab on" data-tab="all">全部</a><a class="tab" data-tab="signed">已签到</a><a class="tab" data-tab="unsigned">未签到</a>
+              <a class="tab" data-tab="onsite">现场注册</a><a class="tab" data-tab="manual">工作人员代签</a><a class="tab" data-tab="nophone">无手机号</a>
+            </div>
+            <button class="btn sm" id="exportFiltered">导出当前筛选</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="g g6 mt" id="statRow"></div>
+
+      <div class="card mt">
+        <div class="hd"><h3>人员与签到状态</h3><span class="hint">导出内容与当前筛选一致</span></div>
+        <div class="tbl-wrap"><table class="tbl"><thead><tr>
+          <th>姓名</th><th>公司 / 部门</th><th>职务</th><th>电话</th><th>桌号</th><th>类别</th>
+          <th>来源</th><th>签到状态</th><th>签到时间</th><th>方式</th><th>操作</th>
+        </tr></thead><tbody id="list"></tbody></table></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

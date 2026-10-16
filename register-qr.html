@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>现场注册二维码</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="register-qr">
+<div class="stage-poster">
+  <div class="poster">
+    <span class="tag" id="evLine">活动名称</span>
+    <h1 style="margin-top:12px">现场注册</h1>
+    <p class="sub">扫码填写信息，提交后请与工作人员确认桌号</p>
+
+    <div class="qr-holder" id="bigQr"></div>
+    <div style="margin-top:16px;font-size:13px">链接：<span class="code-chip" id="qrUrl"></span></div>
+
+    <div class="steps">
+      <div><b>① 扫码</b>用手机相机或微信扫一扫</div>
+      <div><b>② 填写</b>姓名、公司／部门、手机号、职务</div>
+      <div><b>③ 提交</b>提示注册成功，等待工作人员确认桌号</div>
+    </div>
+
+    <div class="note info" style="text-align:left;margin-top:18px"><i></i><div>提交后信息会实时出现在签到台的现场注册列表里，工作人员点姓名即可补录桌号与备注；注册不等于签到，稍后用生成的二维码再扫一次才算签到。</div></div>
+
+    <div class="row no-print" style="justify-content:center">
+      <button class="btn" id="printBtn">打印此页</button>
+      <a class="btn ghost" id="openForm" href="mobile-register.html">在本机打开表单</a>
+      <a class="btn ghost" href="index.html">返回导航</a>
+    </div>
+    <p class="small muted" style="margin-top:14px">二维码由本机即时生成，指向配置的短链域名；域名可在「个人页面设置」里修改。</p>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

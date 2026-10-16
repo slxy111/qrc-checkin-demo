@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>现场注册记录 · 管理后台</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="onsite" data-auth="admin">
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="page">
+      <div class="ph-head">
+        <div>
+          <h1>现场注册记录</h1>
+          <p>新人手机上提交注册后，这里会实时刷新；点姓名进入右侧面板，核对同步过来的信息，补录桌号与备注，可直接打印标签。</p>
+        </div>
+        <div class="actions">
+          <span class="live-dot" id="liveDot"><i></i>实时刷新中</span>
+          <span class="switch" id="autoToggle"><i></i><span>自动刷新开</span></span>
+          <span class="small muted">最后更新 <b class="mono" id="updatedAt">--:--:--</b></span>
+          <button class="btn sm" id="refreshBtn">立即刷新</button>
+          <button class="btn sm" id="exportBtn">导出</button>
+        </div>
+      </div>
+
+      <div class="g g4" id="stats"></div>
+
+      <div class="split mt">
+        <div class="card">
+          <div class="hd">
+            <div class="row"><h3>现场注册实时列表</h3><span class="hint" id="count"></span></div>
+            <div class="tabs">
+              <a class="tab on" data-tab="all">全部</a>
+              <a class="tab" data-tab="pending">待补充桌号</a>
+              <a class="tab" data-tab="done">已补充</a>
+              <a class="tab" data-tab="signed">已签到</a>
+            </div>
+          </div>
+          <div class="tbl-wrap"><table class="tbl"><thead><tr>
+            <th>提交时间</th><th>姓名</th><th>公司 / 部门</th><th>电话</th><th>类别</th><th>桌号</th><th>备注</th><th>状态</th><th>操作</th>
+          </tr></thead><tbody id="list"></tbody></table></div>
+          <div class="tbl-foot"><span>新提交的记录会在顶部高亮显示；点姓名进入右侧补录面板</span></div>
+        </div>
+
+        <div class="drawer" id="panel"></div>
+      </div>
+
+      <div class="g g3 mt">
+        <div class="card"><div class="hd"><h3>手机自助注册流程</h3></div><div class="bd">
+          <div class="steps">
+            <div class="s"><b>① 扫码</b><span>扫签到台的注册二维码</span></div>
+            <div class="s"><b>② 填写提交</b><span>姓名/公司/手机号/职务必填</span></div>
+            <div class="s"><b>③ 本页实时出现</b><span>列表高亮新记录</span></div>
+            <div class="s"><b>④ 补桌号并打印</b><span>保存并打印标签 1 张</span></div>
+          </div>
+          <div class="row mt-s">
+            <a class="btn sm ghost" href="mobile-register.html" target="_blank">预览手机注册页</a>
+            <a class="btn sm ghost" href="register-qr.html">注册二维码页</a>
+          </div>
+        </div></div>
+        <div class="card"><div class="hd"><h3>重复与校验</h3></div><div class="bd">
+          <ul class="list-clean">
+            <li>姓名 + 公司／部门重复时合并到原记录，不重复建档</li>
+            <li>手机号、职务为必填；号码自动去空格并按 11 位校验</li>
+            <li>类别不在字典内归入未分类</li>
+          </ul>
+        </div></div>
+        <div class="card"><div class="hd"><h3>打印</h3></div><div class="bd">
+          <ul class="list-clean">
+            <li>标签格式在「打印模板设计」里按活动设置</li>
+            <li>补录完桌号点「保存并打印标签」直接出 1 张</li>
+            <li>也可以先保存，稍后在签到台列表补打</li>
+          </ul>
+          <a class="btn sm ghost mt-s" href="admin-print-template.html">打开打印模板设计</a>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

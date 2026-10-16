@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>短信通知 · 管理后台</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="sms" data-auth="admin">
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="page">
+      <div class="ph-head">
+        <div><h1>短信通知</h1><p>按模板逐人生成短信内容与专属链接，导出给运营商发送；没有手机号的人员自动跳过并列出清单。</p></div>
+      </div>
+      <div class="split">
+        <div class="stack">
+          <div class="card">
+            <div class="hd"><h3>短信模板</h3><span class="hint">变量位置报备后不要改动</span></div>
+            <div class="bd">
+              <textarea class="textarea" id="tpl" style="min-height:150px"></textarea>
+              <div class="row mt-s" style="justify-content:space-between">
+                <div class="row">
+                  <span class="tag">{主办单位}</span><span class="tag">{活动名称}</span><span class="tag">{活动开始时间}</span>
+                  <span class="tag">{活动地点}</span><span class="tag">{签到时段}</span><span class="tag">{个人签到链接}</span>
+                  <span class="tag">{姓名}</span><span class="tag">{桌号}</span>
+                </div>
+                <button class="btn primary" id="saveTpl">保存模板</button>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="hd"><h3>无手机号清单</h3><span class="hint">补齐号码后可补发</span></div>
+            <div class="tbl-wrap"><table class="tbl"><thead><tr><th>姓名</th><th>公司 / 部门</th><th>说明</th></tr></thead><tbody id="skipList"></tbody></table></div>
+            <div class="tbl-foot"><button class="btn sm" id="exportSkip">导出清单</button></div>
+          </div>
+        </div>
+        <div class="stack">
+          <div class="card">
+            <div class="hd"><h3>人员范围</h3>
+              <div class="row" style="gap:8px">
+                <select class="select" id="range" style="max-width:170px">
+                  <option value="all">全部人员</option>
+                  <option value="unsigned">未签到</option>
+                  <option value="onsite">现场注册</option>
+                  <option value="nophone">无手机号</option>
+                </select>
+                <select class="select" id="rangeCompany" style="max-width:190px"></select>
+              </div>
+            </div>
+            <div class="bd"><div class="row" id="rangeInfo"></div></div>
+          </div>
+          <div class="card">
+            <div class="hd"><h3>内容预览</h3><span class="hint">先看前三条</span></div>
+            <div class="bd stack" id="preview" style="gap:10px"></div>
+          </div>
+          <div class="card">
+            <div class="hd"><h3>导出给运营商</h3><span class="hint">列：手机号 / 短信内容 / 姓名</span></div>
+            <div class="bd">
+              <div class="row" style="justify-content:space-between">
+                <span class="small muted">导出后可交给短信渠道批量发送</span>
+                <button class="btn primary" id="exportTxt">导出 CSV</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

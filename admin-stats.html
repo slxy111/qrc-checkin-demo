@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>统计汇总 · 管理后台</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="stats" data-auth="admin">
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="page">
+      <div class="ph-head">
+        <div><h1>统计汇总</h1><p>按类别或公司／部门分组统计，可下钻到明细；各分组之和等于应到人数。</p></div>
+        <div class="actions">
+          <div class="tabs"><a class="tab on" data-by="category">按类别</a><a class="tab" data-by="company">按公司 / 部门</a></div>
+          <button class="btn sm" id="exportBtn">导出汇总</button>
+          <button class="btn sm ghost" id="drill">下钻明细</button>
+        </div>
+      </div>
+      <div class="g g4" id="stats"></div>
+      <div class="split mt">
+        <div class="card"><div class="hd"><h3>到场情况对比</h3><span class="hint">实到 / 应到</span></div>
+          <div class="bd"><div class="chart" id="chart"></div></div></div>
+        <div class="card"><div class="hd"><h3>分组统计表</h3></div>
+          <div class="tbl-wrap"><table class="tbl"><thead><tr>
+            <th>分组</th><th>应到</th><th>实到</th><th>未到</th><th>到场率</th><th>现场注册</th>
+          </tr></thead><tbody id="table"></tbody></table></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

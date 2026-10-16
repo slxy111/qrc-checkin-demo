@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>个人页面设置 · 管理后台</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="passpage" data-auth="admin">
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <div class="main">
+    <header class="top" id="top"></header>
+    <div class="page">
+      <div class="ph-head">
+        <div><h1>个人页面设置</h1><p>配置手机端个人二维码页面的文案与域名；域名同时用于短信链接和标签上的二维码。</p></div>
+        <div class="actions"><button class="btn sm primary" id="save">保存</button></div>
+      </div>
+      <div class="split">
+        <div class="stack">
+          <div class="card">
+            <div class="hd"><h3>域名与活动信息</h3><span class="hint">改一处，短信与二维码一起变</span></div>
+            <div class="bd">
+              <div class="field"><label>短链域名</label><input class="input" id="domain"></div>
+              <div class="field mt-s"><label>主办单位（短信签名）</label><input class="input" id="host"></div>
+              <div class="note warn mt-s"><i></i><div>测试时用占位域名即可；正式上线前把域名换成已备案的，避免已发出的短信链接失效。</div></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="hd"><h3>页面文案</h3></div>
+            <div class="bd">
+              <div class="field"><label>亮度提示</label><input class="input" id="tipBright"></div>
+              <div class="field mt-s"><label>查询失败提示</label><input class="input" id="tipErr"></div>
+              <div class="field mt-s"><label>失败引导文案</label><input class="input" id="tipGuide"></div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="hd"><h3>两种打开方式</h3></div>
+            <div class="bd">
+              <div class="steps">
+                <div class="s"><b>方式一</b><span>短信专属链接，直接显示本人二维码</span></div>
+                <div class="s"><b>方式二</b><span>不带参数打开，输入手机号查询</span></div>
+              </div>
+              <div class="row mt-s">
+                <a class="btn sm ghost" href="mobile-pass.html" target="_blank">预览个人页</a>
+                <a class="btn sm ghost" href="mobile-query.html" target="_blank">预览查询页</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="hd"><h3>手机端预览</h3><span class="hint">实时反映上面的修改</span></div>
+          <div class="bd" style="display:flex;justify-content:center;background:var(--soft)">
+            <div class="phone" style="width:300px;height:560px">
+              <div class="scr"><div id="preview" style="height:100%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>签到台 · 打印标签</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body data-page="kiosk-print">
+<div class="kiosk">
+  <div class="k-top">
+    <div class="ev">确认签到 · 打印标签 <span>· 一次 1 张</span></div>
+    <div class="right">
+      <span class="selsm no-print" style="padding:0"><select id="kioskEventPick" class="select" style="border:0;background:transparent;padding:7px 10px;font-size:13px"></select></span>
+      <a class="btn lg" href="kiosk-checkin.html">返回签到</a>
+      <a class="btn lg ghost" href="admin-print-template.html">后台设计标签格式</a>
+    </div>
+  </div>
+
+  <div class="k-result big-ok" style="margin:0">
+    <div>
+      <div class="t">签到成功</div>
+      <div class="s" id="who">—</div>
+    </div>
+    <div class="row" style="gap:12px">
+      <button class="btn lg" id="doPrint" style="background:#fff;color:#0b6b45;border:0;font-size:20px;padding:16px 34px">打印标签</button>
+      <button class="btn lg" id="skip" style="background:transparent;border:2px solid rgba(255,255,255,.75);color:#fff;font-size:16px">跳过打印</button>
+    </div>
+  </div>
+
+  <div class="split" style="align-items:start">
+    <div class="card" style="background:#fff">
+      <div class="hd"><h3 style="font-size:17px">即将打印的标签</h3><span class="hint" id="tplInfo"></span></div>
+      <div class="bd" style="display:flex;justify-content:center;align-items:center;background:var(--soft);min-height:240px;padding:26px">
+        <div id="preview"></div>
+      </div>
+    </div>
+    <div class="card" style="background:#fff">
+      <div class="hd"><h3>最近签到（可补打）</h3><span class="hint">漏打就点这里的「打印」</span></div>
+      <div class="k-list" style="box-shadow:none">
+        <div class="lh"><span>姓名</span><span>公司 / 部门</span><span>桌号</span><span>类别</span><span>状态</span><span>时间</span><span>操作</span></div>
+        <div id="recent"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="k-foot">
+    <div class="row">
+      <span class="kbd">标签格式在后台「打印模板设计」里设置</span>
+      <span>现场不需要选份数，一次一张</span>
+      <span>标签贴在提前做好的胸卡上</span>
+    </div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+</body>
+</html>

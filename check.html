@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>手机访问自检</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+<div class="w-wide" style="padding:26px 24px 50px">
+  <div class="hero" style="background:linear-gradient(135deg,#eef3ff,#f7f9ff 45%,#eafaf7);border:1px solid var(--line);border-radius:20px;padding:24px 26px;box-shadow:var(--sh)">
+    <span class="tag">手机访问自检</span>
+    <h1 style="font-size:23px;margin:10px 0 6px">手机打不开 / 扫不开？先看这一页</h1>
+    <p class="muted" style="max-width:840px;margin:0">二维码里装的是一行网址，手机能打开这行网址，才能扫开。这一页会告诉你手机应该访问哪个地址，并给出可以直接扫的二维码。</p>
+  </div>
+
+  <div class="g mt" style="grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px">
+    <div class="card">
+      <div class="hd"><h3>手机请访问这个地址</h3><span class="hint">连同一个 WiFi，用手机浏览器手动输入</span></div>
+      <div class="bd">
+        <div id="lanUrl" class="mono" style="font-size:19px;font-weight:700;word-break:break-all">—</div>
+        <div class="row mt-s">
+          <button class="btn primary" id="copyBtn">复制地址</button>
+          <a class="btn ghost" id="openBtn" href="#" target="_blank">在这台电脑上打开看看</a>
+          <a class="btn ghost" href="index.html">回到首页</a>
+        </div>
+        <div class="divider"></div>
+        <dl class="kv">
+          <dt>当前打开地址</dt><dd id="curUrl" class="mono-sm">—</dd>
+          <dt>电脑局域网 IP</dt><dd id="lanIp" class="mono-sm">—</dd>
+          <dt>服务器状态</dt><dd id="srvState">—</dd>
+        </dl>
+        <div class="note mt" id="verdict"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="hd"><h3>手机扫这个码，先测能否打开</h3><span class="hint">扫开后应看到网站首页</span></div>
+      <div class="bd center">
+        <div class="qr-holder" id="siteQr" style="justify-content:center"></div>
+        <p class="small muted mt-s">这个二维码指向本机首页。能扫开就说明手机和电脑是通的，注册页、个人二维码页也一定能扫开。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt">
+    <div class="hd"><h3>三步自检</h3></div>
+    <div class="bd">
+      <div class="steps">
+        <div class="s"><b>① 服务器在跑</b><span>那个黑窗口要开着，关掉就停了</span></div>
+        <div class="s"><b>② 手机同一个 WiFi</b><span>不能用手机流量，也不能是别的网段</span></div>
+        <div class="s"><b>③ 手机能打开上面的地址</b><span>手动输入能打开，扫码就一定行</span></div>
+        <div class="s"><b>④ 防火墙放行</b><span>第一次运行要勾「专用网络」并允许</span></div>
+      </div>
+      <div class="note warn mt"><i></i><div>如果四条都对、手机还是打不开：有些公司或酒店 WiFi 开了「客户端隔离」，设备之间不能互访。这时改用手机热点——让电脑连手机热点，再打开本页看新地址。</div></div>
+      <div class="hintline">常见误区：用 localhost 打开本站时，二维码里若是 localhost，手机上指的是手机自己，永远打不开；本系统会自动换成上面的局域网地址，换不了时这里会提示。</div>
+    </div>
+  </div>
+</div>
+<script src="lan.js"></script>
+<script src="assets/store.js"></script>
+<script src="assets/qr.js"></script>
+<script src="assets/print.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/pages-kiosk.js"></script>
+<script src="assets/pages-mobile.js"></script>
+<script src="assets/pages-admin.js"></script>
+<script src="assets/check.js"></script>
+</body>
+</html>
